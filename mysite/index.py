@@ -13,7 +13,7 @@ def sign_up(request):
                  email=request.POST['emailsignup'],
                  password=request.POST['passwordsignup'])
         userinfo.save()
-        ctx['zlt'] = '注册成功'
+        ctx['zlt'] = '成功注册'
         return HttpResponseRedirect("/")
     return render(request, "sign_up.html",ctx)
 
