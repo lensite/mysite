@@ -25,7 +25,7 @@ def log_in(request):
         RequestPasswd = RequestData.get('password')
         result = usertable.objects.filter(uname=RequestName,password=RequestPasswd).count()
         if result == 1:
-            ctx['rlt'] = '登陆正确'
+            ctx['rlt'] = '登陆成功'
         else:
             ctx['rlt'] = '登陆错误'
     return render(request, "log_in.html", ctx)
