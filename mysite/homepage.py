@@ -7,4 +7,5 @@ from django.views.decorators import csrf
 
 def home(request):
     ctx = {}
+
     return render(request, "index.html",ctx)

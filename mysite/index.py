@@ -4,6 +4,7 @@ from django.shortcuts import render
 from site1.models import usertable
 from django.http import HttpResponseRedirect
 from django.views.decorators import csrf
+from django.contrib.auth.decorators import login_required
 
 def sign_up(request):
     ctx = {}
