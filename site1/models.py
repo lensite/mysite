@@ -15,3 +15,4 @@ class hosttable(models.Model):
     hostcpu = models.CharField(max_length=50)
     hostmem = models.CharField(max_length=10)
     hosthdd = models.CharField(max_length=10)
+    dateTime = models.DateTimeField(auto_now_add=True)
