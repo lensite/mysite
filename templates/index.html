@@ -16,10 +16,12 @@
 										<tbody>
 											{% for trinfo in tr_list %}
                                                     <tr>
-                                                    <td>1</td>
-                                                    {% for tdinfo in td_list %}
-                                                    <td>{{ tdinfo }}</td>
-                                                    {% endfor %}
+                                                        <td>1</td>
+                                                        <td>{{ trinfo.hostname }}</td>
+                                                        <td>{{ trinfo.hostip }}</td>
+                                                        <td>{{ trinfo.hosthdd }}</td>
+                                                        <td>{{ trinfo.hostmem }}</td>
+                                                        <td>{{ trinfo.hostcpu }}</td>
                                                     </tr>
                                             {% endfor %}
 										</tbody>
