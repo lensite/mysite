@@ -1,5 +1,29 @@
 {% extends 'templates.html' %}
 
 {% block content %}
-    <h1>welcome to my site</h1>
+    <div class="panel-body no-padding">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>序号</th>
+												<th>HOST NAME</th>
+												<th>IP ADDRESS</th>
+												<th>HDD SIZE</th>
+                                                <th>MEM SIZE</th>
+                                                <th>CPU INFO</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for trinfo in tr_list %}
+                                                    <tr>
+                                                    <td>1</td>
+                                                    {% for tdinfo in td_list %}
+                                                    <td>{{ tdinfo }}</td>
+                                                    {% endfor %}
+                                                    </tr>
+                                            {% endfor %}
+										</tbody>
+									</table>
+								</div>
+
 {% endblock %}
