@@ -11,7 +11,7 @@
 												<th>HDD SIZE</th>
                                                 <th>MEM SIZE</th>
                                                 <th>CPU INFO</th>
-                                                <th>STATUS</th>
+                                                <th>UPDATE TIME</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -23,7 +23,7 @@
                                                         <td>{{ trinfo.hosthdd }}</td>
                                                         <td>{{ trinfo.hostmem }}</td>
                                                         <td>{{ trinfo.hostcpu }}</td>
-                                                        <td>正常</td>
+                                                        <td>{{trinfo.dateTime}}</td>
                                                     </tr>
                                             {% endfor %}
 										</tbody>
