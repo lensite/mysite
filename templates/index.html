@@ -12,18 +12,24 @@
                                                 <th>MEM SIZE</th>
                                                 <th>CPU INFO</th>
                                                 <th>UPDATE TIME</th>
+                                                <th>STATUS</th>
 											</tr>
 										</thead>
 										<tbody>
 											{% for trinfo in tr_list %}
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>{{ trinfo.hostname }}</td>
-                                                        <td>{{ trinfo.hostip }}</td>
-                                                        <td>{{ trinfo.hosthdd }}</td>
-                                                        <td>{{ trinfo.hostmem }}</td>
-                                                        <td>{{ trinfo.hostcpu }}</td>
+                                                        <td>{{trinfo.hostname}}</td>
+                                                        <td>{{trinfo.hostip}}</td>
+                                                        <td>{{trinfo.hosthdd}}</td>
+                                                        <td>{{trinfo.hostmem}}</td>
+                                                        <td>{{trinfo.hostcpu}}</td>
                                                         <td>{{trinfo.dateTime|date:"Y-m-d H:i:s"}}</td>
+                                                        {% if trinfo.status == 1 %}
+                                                                <td>正常</td>
+                                                        {% else %}
+                                                                <td>错误</td>
+                                                        {% endif %}
                                                     </tr>
                                             {% endfor %}
 										</tbody>
