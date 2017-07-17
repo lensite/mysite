@@ -23,7 +23,7 @@
                                                         <td>{{ trinfo.hosthdd }}</td>
                                                         <td>{{ trinfo.hostmem }}</td>
                                                         <td>{{ trinfo.hostcpu }}</td>
-                                                        <td>{{trinfo.dateTime}}</td>
+                                                        <td>{{trinfo.dateTime|date:"Y-m-d H:i:s"}}</td>
                                                     </tr>
                                             {% endfor %}
 										</tbody>
