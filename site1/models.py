@@ -16,4 +16,4 @@ class hosttable(models.Model):
     hostmem = models.CharField(max_length=10)
     hosthdd = models.CharField(max_length=10)
     dateTime = models.DateTimeField(auto_now=True)
-    status = models.IntegerField
+    status = models.IntegerField()
