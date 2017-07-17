@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from . import Calculation
-from site1.models import hosttable
+from site1.models import hosttable,usertable
 import datetime
 
 def home(request):
@@ -17,4 +17,9 @@ def home(request):
     d1 = datetime.datetime.strptime(endtime,'%Y-%m-%d %H:%M:%S')
     print((starttime-d1).seconds)
     print(Calculation.Comparative_time())
+    if Calculation.Comparative_time() > 600:
+        userinfo = usertable.objects.filter(hostname='llsserver_01').update(status ='0')
+    else:
+        userinfo = usertable.objects.filter(hostname='llsserver_01').update(status='1')
+     userinfo.save()
     return render(request, "index.html",item_list)
