@@ -1,39 +1,52 @@
 {% extends 'templates.html' %}
-
 {% block content %}
-    <div class="panel-body no-padding">
-									<table class="table">
-										<thead>
-											<tr>
-												<th>HOST ID</th>
-												<th>HOST NAME</th>
-												<th>IP ADDRESS</th>
-												<th>HDD SIZE</th>
-                                                <th>MEM SIZE</th>
-                                                <th>CPU INFO</th>
-                                                <th>UPDATE TIME</th>
-                                                <th>STATUS</th>
-											</tr>
-										</thead>
-										<tbody>
-											{% for trinfo in tr_list %}
-                                                    <tr>
-                                                        <td>{{trinfo.hostid}}</td>
-                                                        <td>{{trinfo.hostname}}</td>
-                                                        <td>{{trinfo.hostip}}</td>
-                                                        <td>{{trinfo.hosthdd}}</td>
-                                                        <td>{{trinfo.hostmem}}</td>
-                                                        <td>{{trinfo.hostcpu}}</td>
-                                                        <td>{{trinfo.dateTime|date:"Y-m-d H:i:s"}}</td>
-                                                        {% if trinfo.status == 1 %}
-                                                                <td>COMPLETED</td>
-                                                        {% else %}
-                                                                <td>FAILED</td>
-                                                        {% endif %}
-                                                    </tr>
-                                            {% endfor %}
-										</tbody>
-									</table>
-								</div>
-
+    <div class="panel">
+		<div class="panel-heading">
+			<h3 class="panel-title">Host List</h3>
+			<div class="right">
+				<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+				<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+			</div>
+		</div>
+		<div class="panel-body no-padding">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>HOST ID</th>
+						<th>HOST NAME</th>
+						<th>IP ADDRESS</th>
+						<th>HDD SIZE</th>
+                        <th>MEM SIZE</th>
+                        <th>CPU INFO</th>
+                        <th>UPDATE TIME</th>
+                        <th>STATUS</th>
+					</tr>
+				</thead>
+					<tbody>
+					{% for trinfo in tr_list %}
+                        <tr>
+                            <td>{{trinfo.hostid}}</td>
+                            <td>{{trinfo.hostname}}</td>
+                            <td>{{trinfo.hostip}}</td>
+                            <td>{{trinfo.hosthdd}}</td>
+                            <td>{{trinfo.hostmem}}</td>
+                            <td>{{trinfo.hostcpu}}</td>
+                            <td>{{trinfo.dateTime|date:"Y-m-d H:i:s"}}</td>
+                            {% if trinfo.status == 1 %}
+                                <td><span class="label label-success">SUCCESS</span></td>
+                            {% else %}
+                                <td><span class="label label-danger">FAILED</span></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+					</tbody>
+			</table>
+		</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Current State</span></div>
+					<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Hosts</a></div>
+				</div>
+			</div>
+	</div>
 {% endblock %}
