@@ -5,7 +5,7 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>序号</th>
+												<th>HOST ID</th>
 												<th>HOST NAME</th>
 												<th>IP ADDRESS</th>
 												<th>HDD SIZE</th>
@@ -18,7 +18,7 @@
 										<tbody>
 											{% for trinfo in tr_list %}
                                                     <tr>
-                                                        <td>1</td>
+                                                        <td>{{trinfo.hostid}}</td>
                                                         <td>{{trinfo.hostname}}</td>
                                                         <td>{{trinfo.hostip}}</td>
                                                         <td>{{trinfo.hosthdd}}</td>
@@ -26,9 +26,9 @@
                                                         <td>{{trinfo.hostcpu}}</td>
                                                         <td>{{trinfo.dateTime|date:"Y-m-d H:i:s"}}</td>
                                                         {% if trinfo.status == 1 %}
-                                                                <td>正常</td>
+                                                                <td>COMPLETED</td>
                                                         {% else %}
-                                                                <td>错误</td>
+                                                                <td>FAILED</td>
                                                         {% endif %}
                                                     </tr>
                                             {% endfor %}

@@ -10,7 +10,7 @@ def home(request):
     #endtime = datetime.datetime.now()
     #print((endtime - starttime).seconds)
 
-    result = hosttable.objects.values('hostname','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
+    result = hosttable.objects.values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
     item_list = {}
     item_list['tr_list'] = result
     Calculation.Comparative_time()

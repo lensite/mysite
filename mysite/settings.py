@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'test',
         'USER': 'test',
         'PASSWORD': 'as123456',
-        'HOST':'192.168.1.102',
+        'HOST':'192.168.234.128',
         'PORT':'3306',
     }
 }
@@ -117,7 +117,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 LOGIN_URL = '/'
 
