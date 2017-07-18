@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',index.log_in),
     url(r'^sign_up',index.sign_up),
-    url(r'^index',homepage.home)
+    url(r'^index',homepage.host_list)
 ]

@@ -2,10 +2,9 @@
 
 from django.shortcuts import render
 from . import Calculation
-from site1.models import hosttable,usertable
-import datetime
+from site1.models import hosttable
 
-def home(request):
+def host_list(request):
     result = hosttable.objects.values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
     item_list = {}
     item_list['tr_list'] = result
