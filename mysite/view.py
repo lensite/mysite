@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.http import HttpResponse
 from django.shortcuts import render
-from site1.models import usertable
+from site1.models import usertable,hosttable
 from django.http import HttpResponseRedirect
-from django.views.decorators import csrf
-from django.contrib.auth.decorators import login_required
+from . import Calculation
 
 def sign_up(request):
     ctx = {}
@@ -31,3 +29,10 @@ def log_in(request):
         else:
             ctx['rlt'] = '登陆错误'
     return render(request, "log_in.html", ctx)
+
+def host_list(request):
+    result = hosttable.objects.values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
+    item_list = {}
+    item_list['tr_list'] = result
+    Calculation.Comparative_time()
+    return render(request, "index.html",item_list)

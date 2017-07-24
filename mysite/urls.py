@@ -16,11 +16,11 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
-from . import index,homepage
+from . import view,homepage
 urlpatterns = [
     #url(r'^templates/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_PATH}),
     url(r'^admin/', admin.site.urls),
-    url(r'^$',index.log_in),
-    url(r'^sign_up',index.sign_up),
-    url(r'^index',homepage.host_list)
+    url(r'^$', view.log_in),
+    url(r'^sign_up', view.sign_up),
+    url(r'^index',view.host_list)
 ]

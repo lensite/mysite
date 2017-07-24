@@ -9,7 +9,7 @@ class usertable(models.Model):
     password = models.CharField(max_length=20)
 
 class hosttable(models.Model):
-    hostid = models.AutoField(primary_key=True)
+    hostid = models.IntegerField()
     hostname = models.CharField(max_length=50)
     hostip = models.GenericIPAddressField()
     hostcpu = models.CharField(max_length=50)
