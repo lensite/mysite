@@ -17,3 +17,11 @@ class hosttable(models.Model):
     hosthdd = models.CharField(max_length=10)
     dateTime = models.DateTimeField(auto_now=True)
     status = models.IntegerField()
+
+class hoststate(models.Model):
+    hostid = models.IntegerField()
+    cpustate = models.IntegerField()
+    memstate = models.IntegerField()
+    intersent = models.IntegerField()
+    interrecv = models.IntegerField()
+    dateTime = models.DateTimeField(auto_now=True)

@@ -1,5 +1,6 @@
 {% extends 'templates.html' %}
 {% block content %}
+    <div class="main">
     <div class="panel">
 		<div class="panel-heading">
 			<h3 class="panel-title">Host List</h3>
@@ -8,6 +9,7 @@
 				<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
 			</div>
 		</div>
+
 		<div class="panel-body no-padding">
 			<table class="table table-striped">
 				<thead>
@@ -48,5 +50,58 @@
 					<div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Hosts</a></div>
 				</div>
 			</div>
+        <div class="panel panel-headline">
+            <div class="panel-heading">
+							<h3 class="panel-title">主机监控</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div id="headline-chart" class="ct-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
+    <div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2017 <a href="#" target="_blank">Sherlock</a>. All Rights Reserved.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="static/assets/vendor/jquery/jquery.min.js"></script>
+	<script src="static/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="static/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="static/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+	<script src="static/assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="static/assets/scripts/klorofil-common.js"></script>
+    <script>
+    	$(function() {
+            var data, options;
+            // headline charts
+            data = {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                series: [
+                    [23, 29, 24, 40, 25, 24, 35],
+                    [14, 25, 18, 34, 29, 38, 44],
+                ]
+            };
+            options = {
+                height: 300,
+                showArea: true,
+                showLine: false,
+                showPoint: false,
+                fullWidth: true,
+                axisX: {
+                    showGrid: false
+                },
+                lineSmooth: false,
+            };
+            new Chartist.Line('#headline-chart', data, options);
+        }
+        )
+	</script>
 {% endblock %}
