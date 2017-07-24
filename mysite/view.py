@@ -7,7 +7,6 @@ from . import Calculation
 def sign_up(request):
     ctx = {}
     if  request.POST:
-        RequestData = request.POST
         userinfo = usertable(uname=request.POST['usernamesignup'],
                  email=request.POST['emailsignup'],
                  password=request.POST['passwordsignup'])

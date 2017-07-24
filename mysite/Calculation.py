@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-
-from django.shortcuts import render
 from site1.models import hosttable,usertable
 import datetime
-import time
 
 def Comparative_time():
     starttime = datetime.datetime.now()
