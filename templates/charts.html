@@ -1,280 +1,179 @@
-<!doctype html>
-<html lang="en">
+<script src="static/assets/vendor/chartist/js/echarts.min.js"></script>
+<div id="chartmain" style="width:600px; height: 400px;"></div>
+<script>
+  var timeData = ['0:00', '0:30',
+      '1:00', '1:30',
+      '2:00', '2:30',
+      '3:00', '3:30',
+      '4:00', '4:30',
+      '5:00', '5:30',
+      '6:00', '6:30',
+      '7:00', '7:30',
+      '8:00', '8:30',
+      '9:00', '9:30',
+      '10:00', '10:30',
+      '11:00', '11:30',
+      '12:00', '12:30',
+      '13:00', '13:30',
+      '14:00', '14:30',
+      '15:00', '15:30',
+      '16:00', '16:30',
+      '17:00', '17:30',
+      '18:00', '18:30',
+      '19:00', '19:30',
+      '20:00', '20:30',
+      '21:00', '21:30',
+      '22:00', '22:30',
+      '23:00', '23:30'
+  ];
 
-<head>
-	<title>Charts | Klorofil - Free Bootstrap Dashboard Template</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
-	<link rel="stylesheet" href="assets/vendor/chartist/css/chartist-custom.css">
-	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
-</head>
+  option = {
+      title: {
+          text: '多个背景颜色图',
+          x: 'left',
+      },
+      tooltip: {
+          trigger: 'axis',
 
-<body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<!-- NAVBAR -->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="brand">
-				<a href="index.html"><img src="assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
-			</div>
-			<div class="container-fluid">
-				<div class="navbar-btn">
-					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-				</div>
-				<form class="navbar-form navbar-left">
-					<div class="input-group">
-						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
-					</div>
-				</form>
-				<div class="navbar-btn navbar-btn-right">
-					<a class="btn btn-success update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</div>
-				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-								<i class="lnr lnr-alarm"></i>
-								<span class="badge bg-danger">5</span>
-							</a>
-							<ul class="dropdown-menu notifications">
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-								<li><a href="#" class="more">See all notifications</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Basic Use</a></li>
-								<li><a href="#">Working With Data</a></li>
-								<li><a href="#">Security</a></li>
-								<li><a href="#">Troubleshooting</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
-							</ul>
-						</li>
-						<!-- <li>
-							<a class="update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!-- END NAVBAR -->
-		<!-- LEFT SIDEBAR -->
-		<div id="sidebar-nav" class="sidebar">
-			<div class="sidebar-scroll">
-				<nav>
-					<ul class="nav">
-						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
-						<li><a href="charts.html" class="active"><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
-						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
-						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		<!-- END LEFT SIDEBAR -->
-		<!-- MAIN -->
-		<div class="main">
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-					<h3 class="page-title">Charts</h3>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Line Chart</h3>
-								</div>
-								<div class="panel-body">
-									<div id="demo-line-chart" class="ct-chart"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Bar Chart</h3>
-								</div>
-								<div class="panel-body">
-									<div id="demo-bar-chart" class="ct-chart"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Area Chart</h3>
-								</div>
-								<div class="panel-body">
-									<div id="demo-area-chart" class="ct-chart"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="panel">
-								<div class="panel-heading">
-									<h3 class="panel-title">Multiple Chart</h3>
-								</div>
-								<div class="panel-body">
-									<div id="multiple-chart" class="ct-chart"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END MAIN CONTENT -->
-		</div>
-		<!-- END MAIN -->
-		<div class="clearfix"></div>
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">&copy; 2017 <a href="#" target="_blank">Theme I Need</a>. All Rights Reserved. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-			</div>
-		</footer>
-	</div>
-	<!-- END WRAPPER -->
-	<!-- Javascript -->
-	<script src="assets/vendor/jquery/jquery.min.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
-	<script src="assets/scripts/klorofil-common.js"></script>
-	<script>
-	$(function() {
-		var options;
+          axisPointer: {
+              animation: false
+          }
+      },
+      legend: {
+          data: ['流量'],
+          x: 'left'
+      },
+      toolbox: {
+          feature: {
+              dataZoom: {
+                  yAxisIndex: 'none'
+              },
+              restore: {},
+              saveAsImage: {}
+          }
+      },
+      axisPointer: {
+          link: {
+              xAxisIndex: 'all'
+          }
+      },
+      dataZoom: [{
+          show: true,
+          realtime: true,
+          start: 30,
+          end: 100,
 
-		var data = {
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			series: [
-				[200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
-			]
-		};
-
-		// line chart
-		options = {
-			height: "300px",
-			showPoint: true,
-			axisX: {
-				showGrid: false
-			},
-			lineSmooth: false,
-		};
-
-		new Chartist.Line('#demo-line-chart', data, options);
-
-		// bar chart
-		options = {
-			height: "300px",
-			axisX: {
-				showGrid: false
-			},
-		};
-
-		new Chartist.Bar('#demo-bar-chart', data, options);
+          xAxisIndex: [0, 1]
+      }, {
+          type: 'inside',
+          realtime: true,
+          start: 30,
+          end: 70,
+          xAxisIndex: [0, 1]
+      }],
+      grid: [{
+          left: 40,
+          right: 40,
+      }, {
+          left: 40,
+          right: 40,
+      }],
+      xAxis: [{
 
 
-		// area chart
-		options = {
-			height: "270px",
-			showArea: true,
-			showLine: false,
-			showPoint: false,
-			axisX: {
-				showGrid: false
-			},
-			lineSmooth: false,
-		};
+          type: 'category',
+          boundaryGap: false,
+          axisLine: {
+              onZero: true
+          },
+          data: timeData
+      }, {
+          gridIndex: 1
+      }],
 
-		new Chartist.Line('#demo-area-chart', data, options);
+      yAxis: [{
+
+          type: 'value',
+          max: 500,
+          name: '单位:',
+          min: 0,
+          interval: 25,
 
 
-		// multiple chart
-		var data = {
-			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			series: [{
-				name: 'series-real',
-				data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
-			}, {
-				name: 'series-projection',
-				data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
-			}]
-		};
+      }, {
+          gridIndex: 1
+      }],
+      series: [{
+          name: '数值',
+          type: 'line',
+          smooth: true,
+          symbol: 'circle',
+          symbolSize: 9,
+          showSymbol: false,
+          lineStyle: {
+              normal: {
+                  width: 1
+              }
+          },
+          markPoint: {
+              data: [{
+                  type: 'max',
+                  name: '最大值'
+              }, {
+                  type: 'min',
+                  name: '最小值'
+              }]
+          },
+          markArea: {
+              silent: true,
+              label: {
+                  normal: {
+                      position: ['5%', '30%']
+                  }
+              },
+              data: [
+                  [{
+                      name: '优',
+                      yAxis: 100,
+                      itemStyle: {
+                          normal: {
+                              color: 'rgba(0,153,153,0.27)'
+                          }
+                      },
+                  }, {
+                      yAxis: 200
+                  }],
+                  [{
+                      name: '良',
+                      yAxis: 200,
+                      itemStyle: {
+                          normal: {
+                              color: 'rgba(153,204,51,0.2)'
+                          }
+                      },
+                  }, {
+                      yAxis: 300,
+                  }],
+                  [{
+                      name: '差',
+                      yAxis: 300,
+                      itemStyle: {
+                          normal: {
+                              color: 'rgba(250,250,51,0.2)'
+                          }
+                      }
+                  }, {
+                      yAxis: 400,
+                  }]
+              ]
+          },
+          data: [223, 312, 223, 222, 223, 222, 232, 262, 232, 232, 223, 222, 223, 332, 223, 232, 223, 322, 123, 222, 231, 322, 233, 122, 223, 232, 232, 222, 223, 232, 232, 222, 232, 132, 123, 212]
 
-		var options = {
-			fullWidth: true,
-			lineSmooth: false,
-			height: "270px",
-			low: 0,
-			high: 'auto',
-			series: {
-				'series-projection': {
-					showArea: true,
-					showPoint: false,
-					showLine: false
-				},
-			},
-			axisX: {
-				showGrid: false,
+      }]
+  };
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chartmain'));
 
-			},
-			axisY: {
-				showGrid: false,
-				onlyInteger: true,
-				offset: 0,
-			},
-			chartPadding: {
-				left: 20,
-				right: 20
-			}
-		};
-
-		new Chartist.Line('#multiple-chart', data, options);
-
-	});
-	</script>
-</body>
-
-</html>
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+    </script>
