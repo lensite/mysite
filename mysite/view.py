@@ -32,11 +32,6 @@ def log_in(request):
 def host_list(request):
     host_list = hosttable.objects.values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
     host_info= hoststate.objects.filter(hostid='2017072401').values('dateTime','interrecv').order_by('dateTime')
-    #print(host_info)
-    #print(type(host_info))
-    for x in host_info:
-        print(x)
-    #print(host_list)
     item_list = {}
     item_list['inter'] = host_info
     item_list['tr_list'] = host_list
