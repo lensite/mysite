@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from site1.models import usertable,hosttable,hoststate
 from django.http import HttpResponseRedirect
-from . import Calculation
+from . import Calculation,charts
 
 def sign_up(request):
     ctx = {}
