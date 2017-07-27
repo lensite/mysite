@@ -1,17 +1,25 @@
-<div class="panel-body no-padding">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>HOST ID</th>
-				<th>HOST NAME</th>
-				<th>IP ADDRESS</th>
-				<th>HDD SIZE</th>
-                <th>MEM SIZE</th>
-                <th>CPU INFO</th>
-                <th>UPDATE TIME</th>
-                <th>STATUS</th>
-			</tr>
-		</thead>
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">主机列表</h3>
+        <div class="right">
+            <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+            <button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+        </div>
+    </div>
+    <div class="panel-body no-padding">
+	    <table class="table table-striped">
+		    <thead>
+			    <tr>
+				    <th>HOST ID</th>
+				    <th>HOST NAME</th>
+				    <th>IP ADDRESS</th>
+				    <th>HDD SIZE</th>
+                    <th>MEM SIZE</th>
+                    <th>CPU INFO</th>
+                    <th>UPDATE TIME</th>
+                    <th>STATUS</th>
+			    </tr>
+		    </thead>
 			<tbody>
 				{% for trinfo in tr_list %}
                 <tr>
@@ -37,4 +45,5 @@
         <div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Current State</span></div>
         <div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Hosts</a></div>
     </div>
+</div>
 </div>
