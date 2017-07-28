@@ -30,8 +30,10 @@ def log_in(request):
     return render(request, "log_in.html", ctx)
 
 def host_list(request):
-    host_list = hosttable.objects.values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
-    host_info= hoststate.objects.filter(hostid='2017072401').values('dateTime','interrecv','intersent').order_by('dateTime')
+    host_list = hosttable.objects.\
+        values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
+    host_info= hoststate.objects.filter(hostid='2017072401').\
+        values('dateTime','interrecv','intersent','cpustate','memstate').order_by('dateTime')
     item_list = {}
     item_list['inter'] = host_info
     item_list['tr_list'] = host_list
