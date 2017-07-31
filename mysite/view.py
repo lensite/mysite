@@ -38,4 +38,6 @@ def host_list(request):
     item_list['inter'] = host_info
     item_list['tr_list'] = host_list
     Calculation.Comparative_time()
+    exporttype = request.GET.get("hostidto")
+    print(exporttype)
     return render(request, "index.html",item_list)

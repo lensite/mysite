@@ -20,10 +20,10 @@
                     <th>STATUS</th>
 			    </tr>
 		    </thead>
-			<tbody>
+			<tbody className="aaa">
 				{% for trinfo in tr_list %}
-                <tr>
-                <td>{{trinfo.hostid}}</td>
+                <tr >
+                    <td id="{{trinfo.hostid}}" onclick="javascript:hostidto({{trinfo.hostid}})">{{trinfo.hostid}}</td>
                     <td>{{trinfo.hostname}}</td>
                     <td>{{trinfo.hostip}}</td>
                     <td>{{trinfo.hosthdd}}</td>
@@ -46,4 +46,9 @@
         <div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Hosts</a></div>
     </div>
 </div>
+    <script>
+        function hostidto( id ){
+             alert( id );
+        }
+    </script>
 </div>
