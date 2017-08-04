@@ -47,8 +47,15 @@
     </div>
 </div>
     <script>
-        function hostidto( id ){
-             alert( id );
+        function hostidto(id) {
+            var post_data = {
+                "name": id
+            };
+            $.ajax({
+                url:'/test',
+                type: "POST",
+                data: post_data
+            });
         }
     </script>
 </div>

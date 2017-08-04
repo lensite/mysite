@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from site1.models import usertable,hosttable,hoststate
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from . import Calculation,charts
+import json
 
 def sign_up(request):
     ctx = {}
@@ -38,6 +39,7 @@ def host_list(request):
     item_list['inter'] = host_info
     item_list['tr_list'] = host_list
     Calculation.Comparative_time()
-    exporttype = request.GET.get("hostidto")
-    print(exporttype)
     return render(request, "index.html",item_list)
+
+def ajax_deal(request):
+    return HttpResponse("hello")
