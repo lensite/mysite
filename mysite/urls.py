@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^$', view.log_in),
     url(r'^sign_up', view.sign_up),
     url(r'^index',view.host_list),
-    url(r'^ajax_deal',view.ajax_deal),
+    url(r'^search',view.add),
 ]

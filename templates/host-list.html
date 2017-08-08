@@ -44,11 +44,23 @@
     <div class="row">
         <div class="col-md-6"><span class="panel-note"><i class="fa fa-clock-o"></i> Current State</span></div>
         <div class="col-md-6 text-right"><a href="#" class="btn btn-primary">View All Hosts</a></div>
+        <p>请输入查询的主机ID</p>
+            <form action="/add/" method="get">
+            a: <input type="text" id="a" name="a"> <br>
+            <p>result: <span id='result'></span></p>
+            <button type="button" id='sum'>提交</button>
+            </form>
     </div>
 </div>
-    <script>
-         function hostidto( id ){
-             alert( id );
-        }
-    </script>
+<script src="/static/assets/vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#sum").click(function(){
+        var a = $("#a").val();
+        $.get("/search/",{'a':a}, function(ret){
+            $('#result').html(ret)
+        })
+      });
+    });
+</script>
 </div>

@@ -41,5 +41,8 @@ def host_list(request):
     Calculation.Comparative_time()
     return render(request, "index.html",item_list)
 
-def ajax_deal(request):
-    return HttpResponse("hello")
+def add(request):
+    a = request.GET['a']
+    a = int(a)
+    print(a)
+    return HttpResponse(str(a))
