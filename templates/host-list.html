@@ -48,6 +48,7 @@
             <form action="/add/" method="get">
             a: <input type="text" id="a" name="a"> <br>
             <p>result: <span id='result'></span></p>
+                <p>result1: <span id='result1'></span></p>
             <button type="button" id='sum'>提交</button>
             </form>
     </div>
@@ -58,7 +59,8 @@
       $("#sum").click(function(){
         var a = $("#a").val();
         $.get("/search/",{'a':a}, function(ret){
-            $('#result').html(ret)
+            $('#result').html(ret);
+            $('#result1').html(ret)
         })
       });
     });

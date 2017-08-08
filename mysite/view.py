@@ -44,5 +44,11 @@ def host_list(request):
 def add(request):
     a = request.GET['a']
     a = int(a)
+    b=6
     print(a)
-    return HttpResponse(str(a))
+    host_info = hoststate.objects.filter(hostid=a). \
+        values('dateTime', 'interrecv', 'intersent', 'cpustate', 'memstate').order_by('dateTime')
+    print(host_info)
+    item = {}
+    item['test'] = 112233
+    return HttpResponse(a,b)
