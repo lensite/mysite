@@ -40,15 +40,3 @@ def host_list(request):
     item_list['tr_list'] = host_list
     Calculation.Comparative_time()
     return render(request, "index.html",item_list)
-
-def add(request):
-    a = request.GET['a']
-    a = int(a)
-    b=6
-    print(a)
-    host_info = hoststate.objects.filter(hostid=a). \
-        values('dateTime', 'interrecv', 'intersent', 'cpustate', 'memstate').order_by('dateTime')
-    print(host_info)
-    item = {}
-    item['test'] = 112233
-    return HttpResponse(a,b)
