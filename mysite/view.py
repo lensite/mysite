@@ -40,3 +40,10 @@ def host_list(request):
     item_list['tr_list'] = host_list
     Calculation.Comparative_time()
     return render(request, "index.html",item_list)
+
+def add(request):
+    a = request.GET['a']
+    b = request.GET['b']
+    a = int(a)
+    b = int(b)
+    return HttpResponse(str(a+b))
