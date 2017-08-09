@@ -30,6 +30,13 @@ def log_in(request):
             ctx['rlt'] = '登陆错误'
     return render(request, "log_in.html", ctx)
 
+def add(request):
+    a = request.GET['a']
+    b = request.GET['b']
+    a = int(a)
+    b = int(b)
+    return HttpResponse(str(a+b))
+
 def host_list(request):
     host_list = hosttable.objects.\
         values('hostname','hostid','hostip','hosthdd','hostmem','hostcpu','dateTime','status')
@@ -40,10 +47,3 @@ def host_list(request):
     item_list['tr_list'] = host_list
     Calculation.Comparative_time()
     return render(request, "index.html",item_list)
-
-def add(request):
-    a = request.GET['a']
-    b = request.GET['b']
-    a = int(a)
-    b = int(b)
-    return HttpResponse(str(a+b))
