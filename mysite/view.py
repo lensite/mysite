@@ -36,11 +36,9 @@ def search(request):
         b = request.GET['b']
         a = int(a)
         b = int(b)
-    print(a,'78787')
-    return HttpResponse(str(a+b))
-    test = {}
-    item_list['test'] = 'aaaaaaaaaa'
-    return render(request,'index.html',item_list)
+        host_info = hoststate.objects.filter(hostid=a). \
+            values('dateTime', 'interrecv', 'intersent', 'cpustate', 'memstate').order_by('dateTime')
+    return HttpResponse(host_info)
 
 def host_list(request):
     host_list = hosttable.objects.\
