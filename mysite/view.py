@@ -33,11 +33,9 @@ def log_in(request):
 def search(request):
     if request.method == 'GET':
         a = request.GET['a']
-        b = request.GET['b']
         a = int(a)
-        b = int(b)
         host_info = hoststate.objects.filter(hostid=a). \
-            values('dateTime', 'interrecv', 'intersent', 'cpustate', 'memstate').order_by('dateTime')
+            values('dateTime', 'interrecv', 'intersent').order_by('dateTime')
     return HttpResponse(host_info)
 
 def host_list(request):
